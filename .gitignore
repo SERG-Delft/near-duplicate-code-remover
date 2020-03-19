@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Output from tokenizer and DuplicateCodeDetector
+output/
+DuplicateCodeDetector/DuplicateCodeDetector.csproj.json
+DuplicateCodeDetector/DuplicateCodeDetector.csproj.log
+deduplicated_results
+
 # User-specific files
 *.suo
 *.user

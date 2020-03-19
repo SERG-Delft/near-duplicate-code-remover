@@ -51,6 +51,12 @@ public class Extractor {
     public static void ExtractForFolder(File projectFolder, File outputFolder, boolean onlyIdentifiers, File baseFolder) {
         Iterator<File> allFiles = FileUtils.iterateFiles(projectFolder, new String[] {"java"}, true);
         try {
+            String outputFileString = Paths.get(outputFolder.toPath().toString(), projectFolder.getName() + ".jsonl.gz").toString();
+            File outputFile = new File(outputFileString);
+            // Make parent directory if it doesn't exist
+            outputFile.getParentFile().mkdirs();
+            // Make file if it doesn't exist
+            outputFile.createNewFile();
             FileOutputStream output = new FileOutputStream(Paths.get(outputFolder.toPath().toString(),  projectFolder.getName() + ".jsonl.gz").toFile());
             Gson gson = new GsonBuilder().create();
 
