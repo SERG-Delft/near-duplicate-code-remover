@@ -11,9 +11,9 @@ This cross-platform sample tool detects exact and near duplicates of code mainta
 Duplicate removal consists of tokenizing the code, detecting duplicates, copying the dataset and then 
 removing the duplicates from copy. This results with a deduplicated copy and untouched original dataset. 
 A convenient shell script is provided for this, just run:  
-NOTE: Works only for JAVA
+NOTE: Works only for JAVA and must be run from the location of the shell script
 ```
-sh deduplicate.sh target/project/path output/path/
+sh deduplicate.sh target/project/path output/path/ > clone_removal.log 2> error.log
 ```
 * After script finishes, you can find deduplicated dataset under `output/path/`
 You can optionally skip the argument and specify the path in the shell script by changing 
