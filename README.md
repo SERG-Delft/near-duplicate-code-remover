@@ -1,6 +1,8 @@
-# Near-Duplicate Code Detector
+# Near-Duplicate Code Remover
 
-This cross-platform sample tool detects exact and near duplicates of code maintained by the [Deep Program Understanding](https://www.microsoft.com/en-us/research/project/program/) group in Microsoft Research, Cambridge, UK. It has been created for the purpose of deduplicating code corpora for research purposes.
+This cross-platform sample tool detects exact and near duplicates of code. It is a fork of 
+[Near Duplicate Code Detector](https://github.com/microsoft/near-duplicate-code-detector) and 
+mainly adds a convenient shell script to automate the deduplication process for Java datasets.
 
 *Requirements*: 
 * .NET Core 2.1 for parsing code, an appropriate runtime for each of the languages that needs to be tokenized is also required.
@@ -11,7 +13,7 @@ This cross-platform sample tool detects exact and near duplicates of code mainta
 Duplicate removal consists of tokenizing the code, detecting duplicates, copying the dataset and then 
 removing the duplicates from copy. This results with a deduplicated copy and untouched original dataset. 
 A convenient shell script is provided for this, just run:  
-NOTE: Works only for JAVA and must be run from the location of the shell script
+NOTE: Works only for JAVA and must be run from the location of the shell script a.k.a project root
 ```
 sh deduplicate.sh target/project/path output/path/ > clone_removal.log 2> error.log
 ```
@@ -53,16 +55,20 @@ C\#, Java, JavaScript and Python. Please, feel free to contribute tokenizers for
 Once code is tokenized and clones are detected, a removal script can be run.
 `python deduplicate.py --project project/to/deduplicate --duplicates_data data/generated/by/duplicate/detection`
 
+### Original Paper
+
+The main part of this repository (tokenization/duplication detection) works as described and originally implemented 
+for the following paper:
+```
+@inproceedings{allamanis2019adverse,
+  title={The adverse effects of code duplication in machine learning models of code},
+  author={Allamanis, Miltiadis},
+  booktitle={Proceedings of the 2019 ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software},
+  pages={143--153},
+  year={2019}
+}
+```
+
 # Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
-
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+This project welcomes contributions and suggestions.
